@@ -1,0 +1,32 @@
+{
+  "development": {
+    "port": 4000,
+    "db": {
+      "username": "postgres",
+      "password": "root",
+      "database": "leaderboard_scores",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    }
+  },
+  "test": {
+    "port": 3000,
+    "db": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  },
+  "production": {
+    "port": 3000,
+    "db": {
+      "username": "root",
+      "password": null,
+      "database": "database_production",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    }
+  }
+}
