@@ -1,32 +1,23 @@
 {
   "development": {
-    "port": 4000,
-    "db": {
-      "username": "postgres",
-      "password": "root",
-      "database": "leaderboard_scores",
-      "host": "127.0.0.1",
-      "dialect": "postgres"
-    }
+    "username": "postgres",
+    "password": "root",
+    "database": "leaderboard_api",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
   "test": {
-    "port": 3000,
-    "db": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    }
+    "username": "postgres",
+    "password": "root",
+    "database": "leaderboard_api_tester",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
   },
   "production": {
-    "port": 3000,
-    "db": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
-    }
+    "username": "postgres",
+    "password": "OK8KKfZpQHLziwYBocTm",
+    "database": "leaderboard-api-db",
+    "host": "leaderboard-api-db.crx3rvjnywst.us-east-1.rds.amazonaws.com",
+    "dialect": "postgres"
   }
 }
