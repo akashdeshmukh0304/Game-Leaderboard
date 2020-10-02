@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a8eb1c2c-dc95-410c-8058-ebefaa2dc069",
+		"_postman_id": "1cd20947-006e-4f05-9b96-bb45e1b9e35c",
 		"name": "Leadership scores",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -35,7 +35,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"player 2\",\r\n    \"username\": \"player_2\"\r\n}",
+					"raw": "{\r\n    \"name\": \"player 5\",\r\n    \"username\": \"player_5\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,7 +56,8 @@
 						"api",
 						"players"
 					]
-				}
+				},
+				"description": "This endpoint is used for creating the list of players.\r\n"
 			},
 			"response": []
 		},
@@ -67,7 +68,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"score\": 999,\r\n    \"matchName\": \"finals\",\r\n    \"kills\": 26\r\n}",
+					"raw": "{\r\n    \"score\":12,\r\n    \"matchName\": \"finals\",\r\n    \"kills\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -75,7 +76,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://ec2-3-94-190-105.compute-1.amazonaws.com:4000/api/score/3",
+					"raw": "http://ec2-3-94-190-105.compute-1.amazonaws.com:4000/api/score/6",
 					"protocol": "http",
 					"host": [
 						"ec2-3-94-190-105",
@@ -87,9 +88,10 @@
 					"path": [
 						"api",
 						"score",
-						"3"
+						"6"
 					]
-				}
+				},
+				"description": "This endpoint is used for submitting the scores of the user based on the user id passed in the url"
 			},
 			"response": []
 		},
@@ -126,7 +128,8 @@
 							"value": "finals"
 						}
 					]
-				}
+				},
+				"description": "This endpoint is used to fetch the leadeboard details based on the time and matchName params.\r\nTime should be passed in the below format:\r\n1h: 1 hour\r\n1m: 1 minute"
 			},
 			"response": []
 		},
@@ -136,7 +139,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://ec2-3-94-190-105.compute-1.amazonaws.com:4000/api/playersStats/3",
+					"raw": "http://ec2-3-94-190-105.compute-1.amazonaws.com:4000/api/playersStats/6",
 					"protocol": "http",
 					"host": [
 						"ec2-3-94-190-105",
@@ -148,9 +151,10 @@
 					"path": [
 						"api",
 						"playersStats",
-						"3"
+						"6"
 					]
-				}
+				},
+				"description": "This endpoint is used for fetching the specific player stats based on the player id"
 			},
 			"response": []
 		},
@@ -184,7 +188,8 @@
 							"description": "a"
 						}
 					]
-				}
+				},
+				"description": "This endpoint is used for fetching the player stats based on the match name and the time passed"
 			},
 			"response": []
 		}
