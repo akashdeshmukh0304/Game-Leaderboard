@@ -21,18 +21,24 @@ class Score {
                 const timeArray = time.split("-");
                 if (timeArray[0] === "now") {
                     const splitTime = timeArray[1].split("");
-                    if (splitTime[1] === "m") {
-                        timePeriod = moment(new Date()).subtract(splitTime[0], "minutes").format("YYYY-MM-DD HH:mm:ss");
+                    if (splitTime.includes("m")) {
+                        const minutes = splitTime.slice(0, splitTime.indexOf("m")).join("");
+                        timePeriod = moment.utc(new Date()).subtract(parseInt(minutes), "minutes").format("YYYY-MM-DD HH:mm:ss");
                     }
-                    else if (splitTime[1] === "h") {
-                        timePeriod = moment(new Date()).subtract(splitTime[0], "hour").format("YYYY-MM-DD HH:mm:ss");
+                    else if (splitTime.includes("h")) {
+                        const hours = splitTime.slice(0, splitTime.indexOf("h")).join("");
+                        timePeriod = moment.utc(new Date()).subtract(parseInt(hours), "hour").format("YYYY-MM-DD HH:mm:ss");
+                    }
+                    else if (splitTime.includes("d")) {
+                        const days = splitTime.slice(0, splitTime.indexOf("d")).join("");
+                        timePeriod = moment.utc(new Date()).subtract(parseInt(days), "days").format("YYYY-MM-DD HH:mm:ss");
                     }
                 }
             }
-
+            
             const baseWhereCondition = "WHERE 1=1 ";
-            const matchWhereCondition = (matchName !== "") ? `AND "s"."match_name"='${matchName}' ` : "";
-            const timeWhereCondition = (timePeriod !== "") ? `AND "s"."time" >= '${timePeriod}'` : "";
+            const matchWhereCondition = (matchName !== "" && matchName !== null && matchName !== undefined) ? `AND "s"."match_name"='${matchName}' ` : "";
+            const timeWhereCondition = (timePeriod !== "" && timePeriod !== null && timePeriod !== undefined) ? `AND "s"."time" >= '${timePeriod}'` : "";
 
             const whereCondition = baseWhereCondition.concat(matchWhereCondition).concat(timeWhereCondition);
 
