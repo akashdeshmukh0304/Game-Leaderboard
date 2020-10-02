@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon --exec npx babel-node app"
+    "test": "cross-env NODE_ENV=test PORT=4001 jest --testTimeout=10000 --detectOpenHandles --coverage",
+    "start": "cross-env NODE_ENV=production PORT=4000 npx nodemon --exec npx babel-node server",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
+    "pretest": "cross-env NODE_ENV=test npm run migrate:reset"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +27,16 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "cross-env": "^7.0.2",
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "sequelize-cli": "^6.2.0",
+    "supertest": "^5.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules"
+    ]
   }
 }

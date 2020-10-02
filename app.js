@@ -6,7 +6,6 @@ import routes from "./server/routes";
 
 const appConfig = config[process.env.NODE_ENV];
 const app       = express();
-const port      = appConfig.port || 3000;
 
 app.use(logger('dev'));
 
@@ -18,6 +17,4 @@ app.get('*', (req, res) => res.status(200).send({
     message: 'Welcome to the game leaderboard API',
 }));
 
-app.listen(port, () => {
-    console.log(`Server running at ${port}`);
-});
+export default app;
