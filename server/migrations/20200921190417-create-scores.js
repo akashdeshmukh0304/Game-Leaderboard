@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Scores', {
+    await queryInterface.createTable('scores', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,7 +11,7 @@ module.exports = {
       kills: {
         type: Sequelize.INTEGER
       },
-      score: {
+      scores: {
         type: Sequelize.INTEGER
       },
       playerId: {
@@ -20,7 +20,7 @@ module.exports = {
       time: {
         type: Sequelize.DATE
       },
-      matchName: {
+      match_name: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Scores');
+    await queryInterface.dropTable('scores');
   }
 };
